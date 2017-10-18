@@ -7,6 +7,7 @@
 //
 
 import CoreVideo
+import UIKit
 
 struct ImageProcessor {
     static func pixelBuffer (forImage image:CGImage) -> CVPixelBuffer? {
@@ -35,6 +36,16 @@ struct ImageProcessor {
         
         return pixelBuffer
         
+    }
+    
+    static func cropImage(image: UIImage, width: Int, height: Int) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), true, 2.0)
+        //        Place actual image into that rectancle
+        image.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        //        Return the result of drawing the uiimage into the rectangle
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
 }

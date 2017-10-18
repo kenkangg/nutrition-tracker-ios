@@ -5,21 +5,50 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CenterViewController" customModule="calorie_tracker" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CenterViewController" customModule="nutrition_tracker" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="searchBar" destination="cRu-5i-ujc" id="Dxa-Hq-deB"/>
+                <outlet property="searchDisplayController" destination="9a0-Ip-hSg" id="evq-V1-37h"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.17994657197385933" green="1" blue="0.54355882912415998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-        </view>
+        <searchDisplayController id="9a0-Ip-hSg">
+            <connections>
+                <outlet property="delegate" destination="-1" id="M1A-WL-p1v"/>
+                <outlet property="searchContentsController" destination="-1" id="VqF-kJ-zX0"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="4s1-wT-tkd"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="VDo-IS-3ZZ"/>
+            </connections>
+        </searchDisplayController>
+        <tableViewController id="KvU-5B-rbc" customClass="CenterViewController" customModule="nutrition_tracker" customModuleProvider="target">
+            <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1AZ-Zq-ppV">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <searchBar key="tableHeaderView" contentMode="redraw" id="cRu-5i-ujc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <prototypes>
+                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="vQH-sm-Y1D">
+                        <rect key="frame" x="0.0" y="84" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vQH-sm-Y1D" id="oDm-sW-sn7">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </tableViewCellContentView>
+                    </tableViewCell>
+                </prototypes>
+                <connections>
+                    <outlet property="dataSource" destination="KvU-5B-rbc" id="xtW-Uh-2ic"/>
+                    <outlet property="delegate" destination="KvU-5B-rbc" id="WlA-tu-GFi"/>
+                </connections>
+            </tableView>
+            <point key="canvasLocation" x="-357" y="183"/>
+        </tableViewController>
     </objects>
 </document>

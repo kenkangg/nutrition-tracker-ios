@@ -39,6 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        let viewController = self.window?.rootViewController as! ViewController
+        let count = viewController.VStats?.calorieCount!
+        
+        let defaults = UserDefaults.standard
+        defaults.set(count, forKey: "Calorie Count")
     }
 
 

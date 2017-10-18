@@ -8,12 +8,16 @@
 
 import UIKit
 
-class CenterViewController: UIViewController {
+class CenterViewController: UITableViewController, UISearchBarDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        searchBar.delegate = self
         // Do any additional setup after loading the view.
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +26,40 @@ class CenterViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        getData()
     }
-    */
+    
+    func getData() {
+    
+
+        
+        var url = URLComponents(string: "https://trackapi.nutritionix.com/v2/search/instant")
+        url?.queryItems = [URLQueryItem(name: "query", value: "apple")]
+        
+        var request = URLRequest(url: url!.url!)
+        request.addValue("9606db03", forHTTPHeaderField: "x-app-id")
+        request.addValue("716b72f21cc9f14fcf3cd5bbc0e72b1d", forHTTPHeaderField: "x-app-key")
+        request.addValue("runscope/0.1", forHTTPHeaderField: "User-Agent")
+        request.httpMethod = "GET"
+        
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error == nil {
+                var parsedResult:AnyObject!
+                do {
+                    parsedResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as AnyObject
+                } catch {
+                    
+                }
+                print(parsedResult)
+            }
+            
+        }
+        task.resume()
+    
+
+    }
 
 }

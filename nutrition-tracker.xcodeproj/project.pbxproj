@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE0292A01F9742FD00B2CE31 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE02929F1F9742FD00B2CE31 /* StatsViewController.swift */; };
 		BE6B7D661F95C49300BC8CD2 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B7D651F95C49300BC8CD2 /* ImageProcessor.swift */; };
+		BEABD5BC1F96C2F00074D9B8 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEABD5BB1F96C2F00074D9B8 /* Food.swift */; };
 		BECBC87A1F95DA9800D13261 /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BECBC8791F95DA8400D13261 /* Food101.mlmodel */; };
 		BECBC8811F95DB2600D13261 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BECBC8801F95DB2600D13261 /* Default-568h@2x.png */; };
 		BEEA4BCB1F9583ED00DCBE1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEA4BCA1F9583ED00DCBE1A /* AppDelegate.swift */; };
@@ -15,14 +17,14 @@
 		BEEA4BD01F9583ED00DCBE1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEA4BCE1F9583ED00DCBE1A /* Main.storyboard */; };
 		BEEA4BD21F9583ED00DCBE1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEEA4BD11F9583ED00DCBE1A /* Assets.xcassets */; };
 		BEEA4BD51F9583ED00DCBE1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEA4BD31F9583ED00DCBE1A /* LaunchScreen.storyboard */; };
-		BEEA4BDE1F9584CB00DCBE1A /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEA4BDC1F9584CB00DCBE1A /* LeftViewController.swift */; };
-		BEEA4BDF1F9584CB00DCBE1A /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEEA4BDD1F9584CB00DCBE1A /* LeftViewController.xib */; };
-		BEEA4BE31F95871700DCBE1A /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEA4BE11F95871700DCBE1A /* CenterViewController.swift */; };
-		BEEA4BE41F95871700DCBE1A /* CenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEEA4BE21F95871700DCBE1A /* CenterViewController.xib */; };
+		BEFF838E1F960EB600BA13CB /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF838D1F960EB500BA13CB /* CameraViewController.swift */; };
+		BEFF83941F961A9000BA13CB /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF83931F961A9000BA13CB /* FoodViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE02929F1F9742FD00B2CE31 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		BE6B7D651F95C49300BC8CD2 /* ImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		BEABD5BB1F96C2F00074D9B8 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		BECBC8791F95DA8400D13261 /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
 		BECBC8801F95DB2600D13261 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BEEA4BC71F9583ED00DCBE1A /* nutrition-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nutrition-tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,10 +34,8 @@
 		BEEA4BD11F9583ED00DCBE1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEEA4BD41F9583ED00DCBE1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEEA4BD61F9583ED00DCBE1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/Ken/Documents/Personal/nutrition-tracker/nutrition-tracker/Info.plist"; sourceTree = "<absolute>"; };
-		BEEA4BDC1F9584CB00DCBE1A /* LeftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
-		BEEA4BDD1F9584CB00DCBE1A /* LeftViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftViewController.xib; sourceTree = "<group>"; };
-		BEEA4BE11F95871700DCBE1A /* CenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
-		BEEA4BE21F95871700DCBE1A /* CenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenterViewController.xib; sourceTree = "<group>"; };
+		BEFF838D1F960EB500BA13CB /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		BEFF83931F961A9000BA13CB /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +49,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE0292A11F97430400B2CE31 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE02929F1F9742FD00B2CE31 /* StatsViewController.swift */,
+				BEFF83931F961A9000BA13CB /* FoodViewController.swift */,
+				BEFF838D1F960EB500BA13CB /* CameraViewController.swift */,
+				BEEA4BCC1F9583ED00DCBE1A /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		BECBC8821F95DB3900D13261 /* Etc. */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,28 +88,17 @@
 		BEEA4BC91F9583ED00DCBE1A /* nutrition-tracker */ = {
 			isa = PBXGroup;
 			children = (
+				BE0292A11F97430400B2CE31 /* ViewControllers */,
 				BECBC8791F95DA8400D13261 /* Food101.mlmodel */,
 				BE6B7D651F95C49300BC8CD2 /* ImageProcessor.swift */,
 				BEEA4BCA1F9583ED00DCBE1A /* AppDelegate.swift */,
-				BEEA4BCC1F9583ED00DCBE1A /* ViewController.swift */,
 				BEEA4BCE1F9583ED00DCBE1A /* Main.storyboard */,
-				BEEA4BE01F9586ED00DCBE1A /* Subviews */,
 				BEEA4BD11F9583ED00DCBE1A /* Assets.xcassets */,
 				BEEA4BD31F9583ED00DCBE1A /* LaunchScreen.storyboard */,
 				BEEA4BD61F9583ED00DCBE1A /* Info.plist */,
+				BEABD5BB1F96C2F00074D9B8 /* Food.swift */,
 			);
 			path = "nutrition-tracker";
-			sourceTree = "<group>";
-		};
-		BEEA4BE01F9586ED00DCBE1A /* Subviews */ = {
-			isa = PBXGroup;
-			children = (
-				BEEA4BDC1F9584CB00DCBE1A /* LeftViewController.swift */,
-				BEEA4BDD1F9584CB00DCBE1A /* LeftViewController.xib */,
-				BEEA4BE11F95871700DCBE1A /* CenterViewController.swift */,
-				BEEA4BE21F95871700DCBE1A /* CenterViewController.xib */,
-			);
-			path = Subviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,9 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEEA4BE41F95871700DCBE1A /* CenterViewController.xib in Resources */,
 				BEEA4BD51F9583ED00DCBE1A /* LaunchScreen.storyboard in Resources */,
-				BEEA4BDF1F9584CB00DCBE1A /* LeftViewController.xib in Resources */,
 				BEEA4BD21F9583ED00DCBE1A /* Assets.xcassets in Resources */,
 				BEEA4BD01F9583ED00DCBE1A /* Main.storyboard in Resources */,
 				BECBC8811F95DB2600D13261 /* Default-568h@2x.png in Resources */,
@@ -176,10 +174,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEABD5BC1F96C2F00074D9B8 /* Food.swift in Sources */,
 				BECBC87A1F95DA9800D13261 /* Food101.mlmodel in Sources */,
-				BEEA4BDE1F9584CB00DCBE1A /* LeftViewController.swift in Sources */,
-				BEEA4BE31F95871700DCBE1A /* CenterViewController.swift in Sources */,
+				BE0292A01F9742FD00B2CE31 /* StatsViewController.swift in Sources */,
+				BEFF83941F961A9000BA13CB /* FoodViewController.swift in Sources */,
 				BEEA4BCD1F9583ED00DCBE1A /* ViewController.swift in Sources */,
+				BEFF838E1F960EB600BA13CB /* CameraViewController.swift in Sources */,
 				BE6B7D661F95C49300BC8CD2 /* ImageProcessor.swift in Sources */,
 				BEEA4BCB1F9583ED00DCBE1A /* AppDelegate.swift in Sources */,
 			);
