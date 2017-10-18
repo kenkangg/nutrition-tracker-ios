@@ -38,15 +38,26 @@ class FoodViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     /* SearchBarDelegate Method */
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if let task = self.task {
-            task.cancel()
-            if searchText == "" {
-                return
+        if searchText == "" {
+            foodArray = Array<Food>()
+            DispatchQueue.main.async{
+                self.tableView.reloadData()
             }
-            getData(foodChoice: searchText, completion: nil)
-        } else {
-            getData(foodChoice: searchText, completion: nil)
         }
+        
+        /*
+         Uncomment for autocomplete search.
+         WARNING: This abuses NutritionIX's free 1000 request limit for free use of their API
+         */
+//        if let task = self.task {
+//            task.cancel()
+//            if searchText == "" {
+//                return
+//            }
+//            getData(foodChoice: searchText, completion: nil)
+//        } else {
+//            getData(foodChoice: searchText, completion: nil)
+//        }
     }
     
     
