@@ -17,6 +17,7 @@ class CameraViewController: UIViewController {
     
     @IBOutlet weak var captureButton: UIButton!
     @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var overlayView: UIView!
     
     @IBOutlet weak var cameraView: UIView!
     
@@ -24,7 +25,7 @@ class CameraViewController: UIViewController {
 
     
     override func viewDidLoad() {
-        
+        overlayView.isOpaque = false
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
@@ -67,6 +68,7 @@ class CameraViewController: UIViewController {
             
             
             self.view.addSubview(captureButton)
+            self.view.addSubview(overlayView)
             
             
         }

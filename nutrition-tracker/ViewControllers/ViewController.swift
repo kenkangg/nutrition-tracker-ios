@@ -18,6 +18,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        swipeView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
 
         
@@ -54,6 +55,21 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if !(VStats?.chartMade)! {
+            let offset = swipeView.contentOffset.x
+            let boundary = swipeView.frame.width / 4 * 3
+            if offset < boundary {
+                VStats?.updateLineChart()
+                VStats?.chartMade = true
+            }
+        }
+        let offset = swipeView.contentOffset.x
+        let alpha = abs(offset - swipeView.frame.width) / swipeView.frame.width
+        VCamera?.overlayView.backgroundColor = UIColor.white.withAlphaComponent(alpha)
     }
     
 

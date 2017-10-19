@@ -14,6 +14,7 @@ class FoodViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var imageView: UIImageView!
     
     var foodArray: Array<Food>?
     
@@ -24,7 +25,7 @@ class FoodViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         super.viewDidLoad()
         
         
-
+        tableView.backgroundView = imageView
         
         
         
