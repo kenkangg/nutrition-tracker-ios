@@ -10,10 +10,31 @@ import UIKit
 
 class StatsViewController: UIViewController {
     @IBOutlet weak var calorieLabel: UILabel!
+    @IBOutlet weak var statsBG: UIImageView!
     var calorieCount: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let min = CGFloat(-30)
+        let max = CGFloat(30)
+        
+        let xMotion = UIInterpolatingMotionEffect(keyPath: "layer.transform.translation.x", type: .tiltAlongHorizontalAxis)
+        xMotion.minimumRelativeValue = min
+        xMotion.maximumRelativeValue = max
+        
+        let yMotion = UIInterpolatingMotionEffect(keyPath: "layer.transform.translation.y", type: .tiltAlongVerticalAxis)
+        yMotion.minimumRelativeValue = min
+        yMotion.maximumRelativeValue = max
+        
+        let motionEffectGroup = UIMotionEffectGroup()
+        motionEffectGroup.motionEffects = [xMotion,yMotion]
+        
+        statsBG.addMotionEffect(motionEffectGroup)
+        
+        
+        
         let defaults = UserDefaults.standard
         if let calorieCount = defaults.value(forKey: "Calorie Count") {
             self.calorieCount = calorieCount as? Int

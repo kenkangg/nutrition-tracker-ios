@@ -10,7 +10,8 @@ import UIKit
 
 class FoodViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
-
+//    @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,12 +23,18 @@ class FoodViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+
+        
+        
+        
+        
         foodArray = Array<Food>()
         
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-  
+//        tableView.backgroundView = imageView
         
     }
     
@@ -62,7 +69,7 @@ class FoodViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        getData(foodChoice: searchBar.text!, completion: nil)
+        lookUpFood(foodChoice: searchBar.text!, completion: nil)
         self.searchBar.endEditing(true)
     }
     
@@ -92,9 +99,7 @@ class FoodViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     }
 
     
-    func getData(foodChoice: String, completion: (() -> Void)?) {
-        
-        
+    func lookUpFood(foodChoice: String, completion: (() -> Void)?) {
         
         var url = URLComponents(string: "https://trackapi.nutritionix.com/v2/search/instant")
         url?.queryItems = [URLQueryItem(name: "query", value: foodChoice)]
@@ -157,7 +162,7 @@ class FoodViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             let statsController = parent.VStats
             statsController?.calorieCount! += food.calories!
             statsController?.calorieLabel.text = String(describing: (statsController?.calorieCount!)!)
-            
+            Utils.updateUserData(view: self)
         }))
         
         predictAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -169,7 +174,6 @@ class FoodViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         present(predictAlert, animated: true, completion: nil)
         
     }
-    
     
     
 }

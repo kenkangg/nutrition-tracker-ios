@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
     
     var VCamera: CameraViewController?
     var VFood: FoodViewController?
@@ -19,8 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        let VLeft: LeftViewController = LeftViewController(nibName: "LeftViewController", bundle: nil)
-//        let VCenter: CenterViewController = CenterViewController(nibName: "CenterViewController", bundle: nil)
+
         
         VStats = self.storyboard?.instantiateViewController(withIdentifier: "statsView") as? StatsViewController
         VCamera = self.storyboard?.instantiateViewController(withIdentifier: "cameraView") as? CameraViewController
@@ -56,6 +55,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
 }
 

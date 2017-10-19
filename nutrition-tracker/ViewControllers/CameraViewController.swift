@@ -89,16 +89,19 @@ class CameraViewController: UIViewController {
     
     func showPrediction(food: String) {
         let predictAlert = UIAlertController(title: food.capitalized, message: "Is this prediction correct?", preferredStyle: UIAlertControllerStyle.alert)
+        let parent = self.parent as! ViewController
+        let foodController = parent.VFood
         
         predictAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-            let parent = self.parent as! ViewController
-            let foodController = parent.VFood
+
             
             var calories: Int?
             
             let callback = {
-                let foodObj = foodController?.foodArray![0] as? Food
+                let foodObj = foodController?.foodArray![0]
                 calories = (foodObj?.calories!)!
+                
+                Utils.updateUserData(view: self)
                 
                 let statsController = parent.VStats
                 statsController?.calorieCount! += calories!
@@ -107,7 +110,7 @@ class CameraViewController: UIViewController {
                 }
             }
             
-            foodController?.getData(foodChoice: food, completion: callback)
+            foodController?.lookUpFood(foodChoice: food, completion: callback)
             
             
             
@@ -116,7 +119,8 @@ class CameraViewController: UIViewController {
         }))
         
         predictAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("Handle Cancel Logic here")
+            
+            foodController?.lookUpFood(foodChoice: food, completion: nil)
         }))
         
         

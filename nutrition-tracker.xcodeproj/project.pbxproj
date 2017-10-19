@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04B7E44198E986A102929DDA /* Pods_nutrition_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB82997C18A134BD41AF990 /* Pods_nutrition_tracker.framework */; };
 		BE0292A01F9742FD00B2CE31 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE02929F1F9742FD00B2CE31 /* StatsViewController.swift */; };
+		BE618AB51F986FEE00149E1E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE618AB41F986FEE00149E1E /* Utils.swift */; };
+		BE618AB71F987DF000149E1E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE618AB61F987DF000149E1E /* Queue.swift */; };
+		BE618AB91F987F6A00149E1E /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE618AB81F987F6A00149E1E /* LinkedList.swift */; };
 		BE6B7D661F95C49300BC8CD2 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B7D651F95C49300BC8CD2 /* ImageProcessor.swift */; };
 		BEABD5BC1F96C2F00074D9B8 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEABD5BB1F96C2F00074D9B8 /* Food.swift */; };
 		BECBC87A1F95DA9800D13261 /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BECBC8791F95DA8400D13261 /* Food101.mlmodel */; };
@@ -22,7 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DB82997C18A134BD41AF990 /* Pods_nutrition_tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nutrition_tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4042BFC76D3E398D42F7854F /* Pods-nutrition-tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nutrition-tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-nutrition-tracker/Pods-nutrition-tracker.release.xcconfig"; sourceTree = "<group>"; };
+		889F0639D96BC304819C9B95 /* Pods-nutrition-tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nutrition-tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nutrition-tracker/Pods-nutrition-tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		BE02929F1F9742FD00B2CE31 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		BE618AB41F986FEE00149E1E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		BE618AB61F987DF000149E1E /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		BE618AB81F987F6A00149E1E /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		BE6B7D651F95C49300BC8CD2 /* ImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		BEABD5BB1F96C2F00074D9B8 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		BECBC8791F95DA8400D13261 /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
@@ -43,12 +53,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B7E44198E986A102929DDA /* Pods_nutrition_tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		015A368CECCA23DC34ADA999 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				889F0639D96BC304819C9B95 /* Pods-nutrition-tracker.debug.xcconfig */,
+				4042BFC76D3E398D42F7854F /* Pods-nutrition-tracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		80E1C714F8209C9F12DCE7F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0DB82997C18A134BD41AF990 /* Pods_nutrition_tracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE0292A11F97430400B2CE31 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +86,15 @@
 				BEEA4BCC1F9583ED00DCBE1A /* ViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BE618ABA1F9881FD00149E1E /* Datastructures */ = {
+			isa = PBXGroup;
+			children = (
+				BE618AB61F987DF000149E1E /* Queue.swift */,
+				BE618AB81F987F6A00149E1E /* LinkedList.swift */,
+			);
+			path = Datastructures;
 			sourceTree = "<group>";
 		};
 		BECBC8821F95DB3900D13261 /* Etc. */ = {
@@ -74,6 +111,8 @@
 				BEEA4BC91F9583ED00DCBE1A /* nutrition-tracker */,
 				BECBC8821F95DB3900D13261 /* Etc. */,
 				BEEA4BC81F9583ED00DCBE1A /* Products */,
+				015A368CECCA23DC34ADA999 /* Pods */,
+				80E1C714F8209C9F12DCE7F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,15 +127,17 @@
 		BEEA4BC91F9583ED00DCBE1A /* nutrition-tracker */ = {
 			isa = PBXGroup;
 			children = (
+				BE618AB41F986FEE00149E1E /* Utils.swift */,
+				BE6B7D651F95C49300BC8CD2 /* ImageProcessor.swift */,
+				BEABD5BB1F96C2F00074D9B8 /* Food.swift */,
+				BE618ABA1F9881FD00149E1E /* Datastructures */,
 				BE0292A11F97430400B2CE31 /* ViewControllers */,
 				BECBC8791F95DA8400D13261 /* Food101.mlmodel */,
-				BE6B7D651F95C49300BC8CD2 /* ImageProcessor.swift */,
 				BEEA4BCA1F9583ED00DCBE1A /* AppDelegate.swift */,
 				BEEA4BCE1F9583ED00DCBE1A /* Main.storyboard */,
 				BEEA4BD11F9583ED00DCBE1A /* Assets.xcassets */,
 				BEEA4BD31F9583ED00DCBE1A /* LaunchScreen.storyboard */,
 				BEEA4BD61F9583ED00DCBE1A /* Info.plist */,
-				BEABD5BB1F96C2F00074D9B8 /* Food.swift */,
 			);
 			path = "nutrition-tracker";
 			sourceTree = "<group>";
@@ -108,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEEA4BD91F9583ED00DCBE1A /* Build configuration list for PBXNativeTarget "nutrition-tracker" */;
 			buildPhases = (
+				0FA20A196182C963CF75B243 /* [CP] Check Pods Manifest.lock */,
 				BEEA4BC31F9583ED00DCBE1A /* Sources */,
 				BEEA4BC41F9583ED00DCBE1A /* Frameworks */,
 				BEEA4BC51F9583ED00DCBE1A /* Resources */,
+				C73D8632715B856ADA5BAC11 /* [CP] Embed Pods Frameworks */,
+				335D7655D3753E9FF41900A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -169,6 +213,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0FA20A196182C963CF75B243 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nutrition-tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		335D7655D3753E9FF41900A5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nutrition-tracker/Pods-nutrition-tracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C73D8632715B856ADA5BAC11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-nutrition-tracker/Pods-nutrition-tracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/ChartsRealm/ChartsRealm.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChartsRealm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nutrition-tracker/Pods-nutrition-tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BEEA4BC31F9583ED00DCBE1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -176,11 +280,14 @@
 			files = (
 				BEABD5BC1F96C2F00074D9B8 /* Food.swift in Sources */,
 				BECBC87A1F95DA9800D13261 /* Food101.mlmodel in Sources */,
+				BE618AB51F986FEE00149E1E /* Utils.swift in Sources */,
 				BE0292A01F9742FD00B2CE31 /* StatsViewController.swift in Sources */,
 				BEFF83941F961A9000BA13CB /* FoodViewController.swift in Sources */,
+				BE618AB71F987DF000149E1E /* Queue.swift in Sources */,
 				BEEA4BCD1F9583ED00DCBE1A /* ViewController.swift in Sources */,
 				BEFF838E1F960EB600BA13CB /* CameraViewController.swift in Sources */,
 				BE6B7D661F95C49300BC8CD2 /* ImageProcessor.swift in Sources */,
+				BE618AB91F987F6A00149E1E /* LinkedList.swift in Sources */,
 				BEEA4BCB1F9583ED00DCBE1A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +423,7 @@
 		};
 		BEEA4BDA1F9583ED00DCBE1A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 889F0639D96BC304819C9B95 /* Pods-nutrition-tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -333,6 +441,7 @@
 		};
 		BEEA4BDB1F9583ED00DCBE1A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4042BFC76D3E398D42F7854F /* Pods-nutrition-tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
