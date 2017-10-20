@@ -67,8 +67,9 @@ class CameraViewController: UIViewController {
             captureSession?.startRunning()
             
             
-            self.view.addSubview(captureButton)
+//            self.view.addSubview(captureButton)
             self.view.addSubview(overlayView)
+            overlayView.addSubview(captureButton)
             
             
         }
@@ -77,15 +78,11 @@ class CameraViewController: UIViewController {
         
     }
     
+    
     @IBAction func takePicture(_ sender: Any) {
+        
         let settings = AVCapturePhotoSettings()
-        //        let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first!
-        //        let previewFormat = [
-        //            kCVPixelBufferPixelFormatTypeKey as String: previewPixelType,
-        //            kCVPixelBufferWidthKey as String: 160,
-        //            kCVPixelBufferHeightKey as String: 160
-        //        ]
-        //        settings.previewPhotoFormat = previewFormat
+        
         stillImageOutput?.capturePhoto(with: settings, delegate: self)
     }
     
@@ -95,7 +92,6 @@ class CameraViewController: UIViewController {
         let foodController = parent.VFood
         
         predictAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-
             
             var calories: Int?
             
@@ -110,6 +106,10 @@ class CameraViewController: UIViewController {
                 DispatchQueue.main.async{
                     statsController?.calorieLabel.text = String(describing: (statsController?.calorieCount!)!)
                 }
+                statsController?.updateLineChart()
+                statsController?.values![6] = (statsController?.calorieCount!)!
+                statsController?.saveToUserDefaults()
+                
             }
             
             foodController?.lookUpFood(foodChoice: food, completion: callback)
@@ -121,7 +121,6 @@ class CameraViewController: UIViewController {
         }))
         
         predictAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-            
             foodController?.lookUpFood(foodChoice: food, completion: nil)
         }))
         

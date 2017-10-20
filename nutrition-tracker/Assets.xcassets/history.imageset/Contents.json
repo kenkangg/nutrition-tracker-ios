@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ic_radio_button_unchecked_48px@3x.png",
+      "filename" : "single-folded-content.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ic_radio_button_unchecked_48px@3x-1.png",
+      "filename" : "single-folded-content@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ic_radio_button_unchecked_48px@3x-2.png",
+      "filename" : "single-folded-content@3x.png",
       "scale" : "3x"
     }
   ],

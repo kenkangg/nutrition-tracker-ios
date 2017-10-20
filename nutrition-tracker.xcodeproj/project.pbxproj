@@ -13,6 +13,7 @@
 		BE618AB71F987DF000149E1E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE618AB61F987DF000149E1E /* Queue.swift */; };
 		BE618AB91F987F6A00149E1E /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE618AB81F987F6A00149E1E /* LinkedList.swift */; };
 		BE6B7D661F95C49300BC8CD2 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B7D651F95C49300BC8CD2 /* ImageProcessor.swift */; };
+		BE6CAC201F98BA1E0013CE6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE6CAC1F1F98BA1E0013CE6B /* LaunchScreen.storyboard */; };
 		BEABD5BC1F96C2F00074D9B8 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEABD5BB1F96C2F00074D9B8 /* Food.swift */; };
 		BECBC87A1F95DA9800D13261 /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BECBC8791F95DA8400D13261 /* Food101.mlmodel */; };
 		BECBC8811F95DB2600D13261 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BECBC8801F95DB2600D13261 /* Default-568h@2x.png */; };
@@ -20,7 +21,6 @@
 		BEEA4BCD1F9583ED00DCBE1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEA4BCC1F9583ED00DCBE1A /* ViewController.swift */; };
 		BEEA4BD01F9583ED00DCBE1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEA4BCE1F9583ED00DCBE1A /* Main.storyboard */; };
 		BEEA4BD21F9583ED00DCBE1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEEA4BD11F9583ED00DCBE1A /* Assets.xcassets */; };
-		BEEA4BD51F9583ED00DCBE1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEA4BD31F9583ED00DCBE1A /* LaunchScreen.storyboard */; };
 		BEFF838E1F960EB600BA13CB /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF838D1F960EB500BA13CB /* CameraViewController.swift */; };
 		BEFF83941F961A9000BA13CB /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF83931F961A9000BA13CB /* FoodViewController.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +34,7 @@
 		BE618AB61F987DF000149E1E /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		BE618AB81F987F6A00149E1E /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		BE6B7D651F95C49300BC8CD2 /* ImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		BE6CAC1F1F98BA1E0013CE6B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEABD5BB1F96C2F00074D9B8 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		BECBC8791F95DA8400D13261 /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
 		BECBC8801F95DB2600D13261 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -42,7 +43,6 @@
 		BEEA4BCC1F9583ED00DCBE1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BEEA4BCF1F9583ED00DCBE1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEEA4BD11F9583ED00DCBE1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BEEA4BD41F9583ED00DCBE1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEEA4BD61F9583ED00DCBE1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/Ken/Documents/Personal/nutrition-tracker/nutrition-tracker/Info.plist"; sourceTree = "<absolute>"; };
 		BEFF838D1F960EB500BA13CB /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		BEFF83931F961A9000BA13CB /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 				BEEA4BCA1F9583ED00DCBE1A /* AppDelegate.swift */,
 				BEEA4BCE1F9583ED00DCBE1A /* Main.storyboard */,
 				BEEA4BD11F9583ED00DCBE1A /* Assets.xcassets */,
-				BEEA4BD31F9583ED00DCBE1A /* LaunchScreen.storyboard */,
 				BEEA4BD61F9583ED00DCBE1A /* Info.plist */,
+				BE6CAC1F1F98BA1E0013CE6B /* LaunchScreen.storyboard */,
 			);
 			path = "nutrition-tracker";
 			sourceTree = "<group>";
@@ -204,9 +204,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEEA4BD51F9583ED00DCBE1A /* LaunchScreen.storyboard in Resources */,
 				BEEA4BD21F9583ED00DCBE1A /* Assets.xcassets in Resources */,
 				BEEA4BD01F9583ED00DCBE1A /* Main.storyboard in Resources */,
+				BE6CAC201F98BA1E0013CE6B /* LaunchScreen.storyboard in Resources */,
 				BECBC8811F95DB2600D13261 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,14 +295,6 @@
 				BEEA4BCF1F9583ED00DCBE1A /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BEEA4BD31F9583ED00DCBE1A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BEEA4BD41F9583ED00DCBE1A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

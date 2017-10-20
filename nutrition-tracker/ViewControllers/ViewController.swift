@@ -69,7 +69,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
         let offset = swipeView.contentOffset.x
         let alpha = abs(offset - swipeView.frame.width) / swipeView.frame.width
-        VCamera?.overlayView.backgroundColor = UIColor.white.withAlphaComponent(alpha)
+        VCamera?.overlayView.backgroundColor = VCamera?.overlayView.backgroundColor?.withAlphaComponent(alpha)
+        if offset != swipeView.frame.width * 2 {
+            VFood?.searchBar.endEditing(true)
+        }
+        
     }
     
 

@@ -131,17 +131,23 @@ class FoodViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     }
     
     func processJSON(json: [String: Any], completion: (() -> Void)?) {
+        print("Process JSON")
         if let data = json["branded"] as? Array<[String:AnyObject]> {
             var newData: Array<Food>
             newData = Array<Food>()
             var count = 10
             for foodData in data {
+                print("GETTING FOOD DATA")
                 if count <= 0 {
                     break
                 }
                 let food = Food(json: foodData)
                 newData.append(food)
                 count = count - 1
+                self.foodArray = newData
+                DispatchQueue.main.async{
+                    self.tableView.reloadData()
+                }
                 
             }
             self.foodArray = newData
@@ -164,6 +170,9 @@ class FoodViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             statsController?.calorieCount! += food.calories!
             statsController?.calorieLabel.text = String(describing: (statsController?.calorieCount!)!)
             Utils.updateUserData(view: self)
+            statsController?.updateLineChart()
+            statsController?.values![6] = (statsController?.calorieCount!)!
+            statsController?.saveToUserDefaults()
         }))
         
         predictAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in

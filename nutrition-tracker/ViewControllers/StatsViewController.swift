@@ -18,71 +18,71 @@ class StatsViewController: UIViewController {
     var calorieCount: Int?
     var chartMade:Bool = false
     
-    var values: Queue<Int>?
-    var dates: Queue<(Int, Int)>?
+    var values: [Int]?
+    var dates: [(Int,Int)]?
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let defaults = UserDefaults.standard
-        if let values = defaults.value(forKey: "dailyCals"), let dates = defaults.value(forKey: "CalDates") {
-            self.values = values as? Queue<Int>
-            self.dates = dates as? Queue<(Int, Int)>
-        } else {
-            self.values = Queue<Int>()
-            self.dates = Queue<(Int, Int)>()
-        }
-        
-        
-        
-        
-        var values = Queue<Int>()
-        var dates = Queue<(Int, Int)>()
-        
-        let cal = Calendar.current
-        var date = cal.startOfDay(for: Date())
-        let day = cal.component(.day, from: date)
-        let month = cal.component(.month, from: date)
-        let currentDate = (month: month, day: day)
-        
-//        if let today = defaults.set(currentDate, forKey: "previous date") {
-//
-//        }
-//
-//        var days = [Int]()
-//        for _ in 1 ... 7 {
-//            let day = cal.component(.day, from: date)
-//            let month = cal.component(.month, from: date)
-//            days.append(day)
-//            date = cal.date(byAdding: .day, value: -1, to: date)!
-//        }
-//        print(days)
-        
         
         addBackgroundParallax()
         
-        
-        if let calorieCount = defaults.value(forKey: "Calorie Count") {
+        if let calorieCount = self.defaults.value(forKey: "Calorie Count") {
             self.calorieCount = calorieCount as? Int
         } else {
             self.calorieCount = 0
         }
+        
+        setProperDateAndData()
     
         calorieLabel.text = String(describing: calorieCount!)
-
+        
+        saveToUserDefaults()
         // Do any additional setup after loading the view.
     }
     
-    func updateLineChart() {
-//        var entries = []
-//        for x in self.values {
-//
-//        }
-        let entry1 = ChartDataEntry(x: (10.05), y: 3000)
-        let entry2 = ChartDataEntry(x: (10.06), y: 2800)
-        let entry3 = ChartDataEntry(x: (10.07), y: Double(self.calorieCount!))
+    func saveToUserDefaults() {
+        self.defaults.set(self.values!, forKey: "dailyCals")
         
-        let dataset = LineChartDataSet(values: [entry1, entry2, entry3], label: "")
+        var months: [Int] = []
+        var days: [Int] = []
+        for i in 0 ... 6 {
+            let (month, day) = self.dates![i]
+            
+            months.append(month)
+            days.append(day)
+        }
+
+        self.defaults.set(months, forKey: "CalMonths")
+        self.defaults.set(days, forKey: "CalDays")
+    }
+    
+    func convertDatesToArray(months: [Int], days: [Int]) -> [(Int, Int)] {
+        var dates: [(Int,Int)] = []
+        for i in 0 ... 6 {
+            dates.append((months[i], days[i]))
+        }
+        return dates
+    }
+    
+    
+    
+    func updateLineChart() {
+        var entries:[ChartDataEntry] = []
+        for i in 0...6 {
+            let (month,day) = self.dates![i]
+            let formattedDate = Double(month) + Double(day) * 0.01
+
+            if i == 6 {
+                entries.append(ChartDataEntry(x: formattedDate, y: Double(self.calorieCount!)))
+            } else {
+                entries.append(ChartDataEntry(x: formattedDate, y: Double(self.values![i])))
+            }
+        }
+
+        
+        let dataset = LineChartDataSet(values: entries, label: "")
         
         let gradientColors = [UIColor.orange.cgColor, UIColor.clear.cgColor] as CFArray // Colors of the gradient
         let colorLocations:[CGFloat] = [0.5, 0.0] // Positioning of the gradient
@@ -105,15 +105,18 @@ class StatsViewController: UIViewController {
         lineGraphView.leftAxis.drawAxisLineEnabled = false
         lineGraphView.rightAxis.drawAxisLineEnabled = false
         
-        lineGraphView.xAxis.drawLabelsEnabled = false
+//        lineGraphView.xAxis.drawLabelsEnabled = false
         lineGraphView.leftAxis.drawLabelsEnabled = false
         lineGraphView.rightAxis.drawLabelsEnabled = false
         
         lineGraphView.animate(yAxisDuration: 1.5, easingOption: .easeInOutCubic)
         lineGraphView.legend.enabled = false
+        lineGraphView.doubleTapToZoomEnabled = false
+        lineGraphView.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        
+        
         // Color
         dataset.colors = ChartColorTemplates.pastel()
-        
         // Refresh chart with new data
         lineGraphView.notifyDataSetChanged()
     }
@@ -126,7 +129,6 @@ class StatsViewController: UIViewController {
         let xMotion = UIInterpolatingMotionEffect(keyPath: "layer.transform.translation.x", type: .tiltAlongHorizontalAxis)
         xMotion.minimumRelativeValue = min
         xMotion.maximumRelativeValue = max
-        
         let yMotion = UIInterpolatingMotionEffect(keyPath: "layer.transform.translation.y", type: .tiltAlongVerticalAxis)
         yMotion.minimumRelativeValue = min
         yMotion.maximumRelativeValue = max
@@ -166,4 +168,76 @@ class StatsViewController: UIViewController {
     }
     
 
+}
+
+extension StatsViewController {
+    func setProperDateAndData() {
+        var oldValues: [Int]?
+        var oldDates: [(Int,Int)]?
+        
+        if let vals = self.defaults.value(forKey: "dailyCals"), let mth = self.defaults.value(forKey: "CalMonths"), let dy = self.defaults.value(forKey: "CalDays") {
+            oldValues = vals as? [Int]
+            oldDates = convertDatesToArray(months: (mth as? [Int])!, days: (dy as? [Int])!)
+        } else {
+            oldValues = [0, 0, 0, 0, 0, 0, self.calorieCount!]
+            oldDates = [(0,0), (0,0), (0,0), (0,0), (0,0), (0,0), (0,0)]
+            print("WASSUP")
+        }
+        
+        let cal = Calendar.current
+        var date = cal.startOfDay(for: Date())
+        var days = [Int]()
+        var months = [Int]()
+        for _ in 1 ... 7 {
+            let day = cal.component(.day, from: date)
+            let month = cal.component(.month, from: date)
+            days.append(day)
+            months.append(month)
+            date = cal.date(byAdding: .day, value: -1, to: date)!
+        }
+        days.reverse()
+        months.reverse()
+        
+        self.dates = []
+        for i in 0 ... 6 {
+            self.dates!.append((months[i],days[i]))
+        }
+        
+        self.values = [0, 0, 0, 0, 0, 0, self.calorieCount!]
+        
+        var newDates:[(Int, Int)] = []
+        var newValues:[Int] = []
+        var last: (Int, Int)?
+        for i in 0 ... 6 {
+            if (self.dates?.contains(where: {$0 == oldDates![i]}))! {
+                newDates.append(oldDates![i])
+                newValues.append(oldValues![i])
+                last = oldDates![i]
+            }
+        }
+        print("WHAT")
+        if let val = last {
+            if let index = self.dates!.index(where: {$0 == val}) {
+                if index != 6 {
+                    for i in index + 1 ... 6 {
+                        newDates.append(self.dates![i])
+                        newValues.append(self.values![i])
+                    }
+                    self.calorieCount! = 0
+                    defaults.set(self.calorieCount!, forKey: "Calorie Count")
+                    newValues[6] = self.calorieCount!
+                } else {
+                    newValues[6] = self.calorieCount!
+                }
+                
+                self.values = newValues
+                self.dates = newDates
+            }
+        } else {
+        }
+    }
+    
+    func moveValsBackADay(vals: [Int]) {
+//        for x in
+    }
 }
