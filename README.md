@@ -4,7 +4,7 @@ This project was an attempt to solve a personal problem I have of not eating eno
 
 My solution was to create a tool that would help me quickly and easily track calories throughout the week without wasting valuable time.
 
-
+![alt text](http://url/to/img.png)
 
 ### Installing
 
