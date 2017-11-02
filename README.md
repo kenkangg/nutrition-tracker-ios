@@ -1,4 +1,4 @@
-# ![alt text](https://github.com/kenkangg/nutrition-tracker-ios/blob/master/Etc./egg.png?raw=true) Nutrition Tracker (Munch)
+# Nutrition Tracker (Munch)
 
 This project was an attempt to solve a personal problem I have of not eating enough on a daily basis. My previous solution was to google calorie counts of specific foods and add them up on my calculator app throughout the day, however this was time consuming, and provided no insight past the current day.
 
